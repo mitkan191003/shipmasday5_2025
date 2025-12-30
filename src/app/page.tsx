@@ -40,7 +40,7 @@ export default function Home() {
   const [state, setState] = useState<AppState>("LANDING");
   const [progress, setProgress] = useState(0);
   const [calibrationText, setCalibrationText] = useState(CALIBRATION_MESSAGES[0]);
-  const [timer, setTimer] = useState(45);
+  const [timer, setTimer] = useState(20);
   const [grassMessage, setGrassMessage] = useState("Look at this grass.");
   const [selectedPrompt, setSelectedPrompt] = useState("");
   const [selectedResponse, setSelectedResponse] = useState("");
