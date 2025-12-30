@@ -1,27 +1,5 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --font-serif: "Times New Roman", Times, serif;
 }
 
 * {
@@ -30,13 +8,98 @@ body {
   margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+html,
+body,
+main {
+  height: 100%;
+  width: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Default raw styles for Landing (when no class is applied) */
+body {
+  background-color: white;
+  color: black;
+  /* No font family set, uses browser default (usually serif or sans-serif depending on browser) */
+}
+
+/* App Mode - The stylized version */
+.app-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  font-family: var(--font-serif);
+  height: 100%;
+}
+
+.app-mode button {
+  background: white;
+  color: black;
+  border: 1px solid black;
+  padding: 10px 20px;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: all 0.2s;
+}
+
+.app-mode button:hover {
+  background: black;
+  color: white;
+}
+
+.app-mode h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+.app-mode p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.grass-container {
+  margin: 2rem 0;
+  border: 1px solid black;
+  user-select: none;
+  /* Prevent selection */
+  -webkit-user-drag: none;
+}
+
+.progress-bar-container {
+  width: 300px;
+  height: 20px;
+  border: 1px solid black;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: black;
+  transition: width 0.3s ease-out;
+}
+
+.app-mode input {
+  border: 1px solid black;
+  padding: 10px;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+  outline: none;
 }
