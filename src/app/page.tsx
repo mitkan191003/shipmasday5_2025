@@ -233,13 +233,63 @@ export default function Home() {
   // --- RENDER ---
 
   if (state === "LANDING") {
-    // RAW HTML Mode
+    // RAW HTML Mode with "Broken Image Box"
+    // Using inline styles to simulate centering while keeping it "raw" looking
+    const BorderRow = () => (
+      <div style={{ display: "flex", gap: "4px", justifyContent: "center" }}>
+        {Array.from({ length: 15 }).map((_, i) => (
+          <img key={i} src="err" alt="x" width="24" height="24" style={{ border: "1px solid #ccc" }} />
+        ))}
+      </div>
+    );
+
+    const BorderCol = () => (
+      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+        {Array.from({ length: 8 }).map((_, i) => (
+          <img key={i} src="err" alt="x" width="24" height="24" style={{ border: "1px solid #ccc" }} />
+        ))}
+      </div>
+    );
+
     return (
-      <div>
-        <h1>Touch Grass Simulator</h1>
-        <p>“An app for people who refuse to go outside.”</p>
-        <br />
-        <button onClick={() => setState("CALIBRATING")}>Begin Healing</button>
+      <div style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontFamily: `"Times New Roman", Times, serif`
+      }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+          <BorderRow />
+          <div style={{ display: "flex", gap: "4px" }}>
+            <BorderCol />
+            <div style={{
+              padding: "2rem",
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center"
+            }}>
+              <h1 style={{ fontWeight: "normal", marginBottom: "1rem" }}>Touch Grass Simulator</h1>
+              <p style={{ marginBottom: "2rem" }}>“An app for people who refuse to go outside.”</p>
+              <button
+                onClick={() => setState("CALIBRATING")}
+                style={{
+                  background: "#eee",
+                  border: "2px outset #ccc",
+                  padding: "5px 15px",
+                  cursor: "pointer",
+                  fontFamily: "inherit"
+                }}
+              >
+                Begin Healing
+              </button>
+            </div>
+            <BorderCol />
+          </div>
+          <BorderRow />
+        </div>
       </div>
     );
   }
