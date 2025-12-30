@@ -264,6 +264,7 @@ export default function Home() {
             onMouseLeave={() => !isMobile && setIsTouchingGrass(false)}
             onTouchStart={() => setIsTouchingGrass(true)}
             onTouchEnd={() => setIsTouchingGrass(false)}
+            onContextMenu={(e) => e.preventDefault()}
           >
             <Image
               src="/grass.jpg"
